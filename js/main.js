@@ -122,13 +122,20 @@ function Caesarontcijfer(input, verschuif) {
 
 var Vignèrezin, Vignèrewoord;
 
+$(function() {
+  updateVignère();
+})
+
 $(".Vignère").on("propertychange change click keyup input paste", updateVignère);
 
 function updateVignère() {
   Vignèrezin = $('#Vignère #Codezin').val().toLowerCase();
   Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase();
+
+  (Vignèrewoord.length === 0) ? $('#plus').css('display', 'none') : $('#plus').css('display', 'inline-block');
+
   var codewoordlang = "";
-  
+
   $('#Vignère #Codezinoutput').html(Vignèrezin);
 
   for (var i = 0; i < Vignèrezin.length; i++) {

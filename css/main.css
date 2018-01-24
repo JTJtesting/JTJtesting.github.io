@@ -20,7 +20,7 @@
     opacity: 1; /* Fully shown on mouse-over */
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
@@ -35,4 +35,13 @@
     height: 25px; /* Slider handle height */
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
+}
+
+#Vignère #Codewoordoutput {
+  border-bottom: white 5px solid;
+}
+
+#plus {
+  position: absolute;
+  margin-left: 10px;
 }
