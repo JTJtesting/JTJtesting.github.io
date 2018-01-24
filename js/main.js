@@ -87,7 +87,6 @@ $(function() {
   $('.Caesarontcijfer').each(function() {
     var elem = $(this);
 
-    elem.data('oldVal', elem.val());
 
     // Look for changes in the value
     $("#Range2").on("propertychange change click keyup input paste", function(event) {
@@ -100,10 +99,9 @@ $(function() {
 });
 
 function updateCaesaront(element) {
-  // Updated stored value
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
-  $("#Caesarontoutput").html(Caesarontcijfer(element.val(), Caesarontverschuifing));
+  $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
 }
 
 function Caesarontcijfer(input, verschuif) {
@@ -124,12 +122,30 @@ function Caesarontcijfer(input, verschuif) {
 // Vignère
 //
 
-var slideront = document.getElementById("Range2");
-var outputont = document.getElementById("ValRange2");
-output.innerHTML = slideront.value; // Display the default slider value
-var Caesarontverschuifing = slideront.value;
-// Update the current slider value (each time you drag the slider handle)
-slideront.oninput = function() {
-    outputont.innerHTML = this.value;
-    Caesarontverschuifing = this.value;
+var Vignèrezin, Vignèrewoord;
+
+$(".Vignère").on("propertychange change click keyup input paste", updateVignère);
+
+function updateVignère() {
+  Vignèrezin = $('#Vignère #Codezin').val().toLowerCase();
+  Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase();
+
+  // if (Vignèrezin !== "" && Vignèrewoord !== "") {
+    var codewoordlang = "";
+    $('#Vignère #Codezinoutput').html(Vignèrezin);
+    for (var i = 0; i < Vignèrezin.length; i++) {
+      console.log(i, Vignèrewoord.length, i % Vignèrewoord.length);
+      (Vignèrewoord[i % Vignèrewoord.length] !== undefined) ? codewoordlang += Vignèrewoord[i % Vignèrewoord.length] : codewoordlang += "";
+    }
+    $('#Vignère #Codewoordoutput').html(codewoordlang);
+    $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, Vignèrewoord));
+  // } else {
+  //   $('#Vignère #Codezinoutput').html('');
+  //   $('#Vignère #Codewoordoutput').html('');
+  //   $('#Vignère #Vignèreoutput').html('');
+  // }
+}
+
+function Vignèreoutput(zin, woord) {
+
 }
