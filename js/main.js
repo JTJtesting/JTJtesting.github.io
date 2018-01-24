@@ -14,14 +14,12 @@ slider.oninput = function() {
 function updateCaesar(element){
       // If value has changed...
      console.log("het gaat de goede kant op");
-      if (element.data('oldVal') != element.val()) {
        // Updated stored value
        element.data('oldVal', element.val());
        element.val(element.data('oldVal').toLowerCase());
        $("#Caesaroutput").html(Caesarcijfer(element.val(),Caesarverschuifing));
         console.log("het zou moeten werken");
         console.log(Caesarcijfer(element.val(),Caesarverschuifing));
-     }
    }
 
 function Caesarcijfer(input, verschuif){
