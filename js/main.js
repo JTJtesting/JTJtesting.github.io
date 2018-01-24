@@ -11,7 +11,7 @@ slider.oninput = function() {
     Caesarverschuifing = this.value;
 }
 
-function updateCaesar(eventje,element){
+function updateCaesar(element){
       // If value has changed...
      console.log("het gaat de goede kant op");
       if (element.data('oldVal') != element.val()) {
@@ -48,8 +48,10 @@ $(function(){
    elem.data('oldVal', elem.val());
 
    // Look for changes in the value
-   $("#Range1").on("propertychange change click keyup input paste",updateCaesar(event,elem));
-   elem.on("propertychange change click keyup input paste",updateCaesar(event,elem));
+   $("#Range1").on("propertychange change click keyup input paste", function(event) {
+     updateCaesar(elem);
+   });
+   elem.on("propertychange change click keyup input paste",function(event){updateCaesar(elem);});
  });
 });
 
