@@ -12,6 +12,7 @@ slider.oninput = function() {
 }
 
 function Caesarcijfer(input, verschuif){
+  verschuif = Number(verschuif);
   console.log("input: ",input);
   console.log("verschuif: ",verschuif);
   var Caesaroutput = "";
