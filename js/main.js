@@ -15,7 +15,10 @@ function Caesarcijfer(input, verschuif){
   var Caesaroutput = ""
   var array = new array();
   for(var i=0; i<input.length; i++){
-    Caesaroutput += alphabet[array.push((alphabet.indexOf(input[i])+verschuif)%25)];
+    array.push((alphabet.indexOf(input[i])+verschuif)%25);
+    for(var j=0; j<array.length; j++){
+    Caesaroutput += alphabet[array[j]];
+    }
   }
   
 }
