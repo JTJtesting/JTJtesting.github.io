@@ -22,6 +22,7 @@ function Caesarcijfer(input, verschuif){
 
 $(function(){
   $('#Caesarcijfer').each(function() {
+    console.log("bullshit");
    var elem = $(this);
 
    // Save current value of element
@@ -30,13 +31,15 @@ $(function(){
    // Look for changes in the value
    elem.on("propertychange change click keyup input paste", function(event){
       // If value has changed...
+     console.log("het gaat de goede kant op");
       if (elem.data('oldVal') != elem.val()) {
        // Updated stored value
        elem.data('oldVal', elem.val());
        elem.val(elem.data('oldVal').toLowerCase());
        $("#Caesarouput").text(Caesarcijfer(elem.val(),Caesarverschuifing));
+        console.log("het zou moeten werken");
      }
    });
  });
-})
+});
 
