@@ -11,6 +11,19 @@ slider.oninput = function() {
     Caesarverschuifing = this.value;
 }
 
+function updateCaesar(eventje,element){
+      // If value has changed...
+     console.log("het gaat de goede kant op");
+      if (element.data('oldVal') != element.val()) {
+       // Updated stored value
+       element.data('oldVal', element.val());
+       element.val(element.data('oldVal').toLowerCase());
+       $("#Caesarouput").html(Caesarcijfer(element.val(),Caesarverschuifing));
+        console.log("het zou moeten werken");
+        console.log(Caesarcijfer(element.val(),Caesarverschuifing));
+     }
+   }
+
 function Caesarcijfer(input, verschuif){
   verschuif = Number(verschuif);
   console.log("input: ",input);
@@ -35,18 +48,8 @@ $(function(){
    elem.data('oldVal', elem.val());
 
    // Look for changes in the value
-   elem.on("propertychange change click keyup input paste", function(event){
-      // If value has changed...
-     console.log("het gaat de goede kant op");
-      if (elem.data('oldVal') != elem.val()) {
-       // Updated stored value
-       elem.data('oldVal', elem.val());
-       elem.val(elem.data('oldVal').toLowerCase());
-       $("#Caesarouput").html(Caesarcijfer(elem.val(),Caesarverschuifing));
-        console.log("het zou moeten werken");
-        console.log(Caesarcijfer(elem.val(),Caesarverschuifing));
-     }
-   });
+   $("#Range1").on("propertychange change click keyup input paste",updateCaesar(event,elem));
+   elem.on("propertychange change click keyup input paste",updateCaesar(event,elem));
  });
 });
 
