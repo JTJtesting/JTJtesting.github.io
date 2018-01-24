@@ -1,5 +1,11 @@
 var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
+// Moest mijn eigen toevoegen, want bij javascript doet hij raar als ik negatieve nummers
+// als modulus doe. Bijvoorbeeld: -1 % 25 = -1
+function mod(n, m) {
+        return ((n % m) + m) % m;
+}
+
 
 //
 // Caesar encoden
@@ -114,9 +120,16 @@ function Caesarontcijfer(input, verschuif) {
   return Caesaroutput;
 }
 
+//
+// Vignère
+//
 
-// Moest mijn eigen toevoegen, want bij javascript doet hij raar als ik negatieve nummers
-// als modulus doe. Bijvoorbeeld: -1 % 25 = -1
-function mod(n, m) {
-        return ((n % m) + m) % m;
+var slideront = document.getElementById("Range2");
+var outputont = document.getElementById("ValRange2");
+output.innerHTML = slideront.value; // Display the default slider value
+var Caesarontverschuifing = slideront.value;
+// Update the current slider value (each time you drag the slider handle)
+slideront.oninput = function() {
+    outputont.innerHTML = this.value;
+    Caesarontverschuifing = this.value;
 }
