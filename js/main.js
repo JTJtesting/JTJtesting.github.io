@@ -127,21 +127,15 @@ $(".Vignère").on("propertychange change click keyup input paste", updateVignèr
 function updateVignère() {
   Vignèrezin = $('#Vignère #Codezin').val().toLowerCase();
   Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase();
+  var codewoordlang = "";
+  
+  $('#Vignère #Codezinoutput').html(Vignèrezin);
 
-  // if (Vignèrezin !== "" && Vignèrewoord !== "") {
-    var codewoordlang = "";
-    $('#Vignère #Codezinoutput').html(Vignèrezin);
-    for (var i = 0; i < Vignèrezin.length; i++) {
-      console.log(i, Vignèrewoord.length, i % Vignèrewoord.length);
-      (Vignèrewoord[i % Vignèrewoord.length] !== undefined) ? codewoordlang += Vignèrewoord[i % Vignèrewoord.length] : codewoordlang += "";
-    }
-    $('#Vignère #Codewoordoutput').html(codewoordlang);
-    $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, codewoordlang));
-  // } else {
-  //   $('#Vignère #Codezinoutput').html('');
-  //   $('#Vignère #Codewoordoutput').html('');
-  //   $('#Vignère #Vignèreoutput').html('');
-  // }
+  for (var i = 0; i < Vignèrezin.length; i++) {
+    (Vignèrewoord[i % Vignèrewoord.length] !== undefined) ? codewoordlang += Vignèrewoord[i % Vignèrewoord.length]: codewoordlang += "";
+  }
+  $('#Vignère #Codewoordoutput').html(codewoordlang);
+  $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, codewoordlang));
 }
 
 function Vignèreoutput(zin, woord) {
@@ -149,7 +143,6 @@ function Vignèreoutput(zin, woord) {
 
   for (var i = 0; i < zin.length; i++) {
     if (alphabet.indexOf(zin[i]) != -1 && alphabet.indexOf(woord[i]) != -1) {
-      console.log(alphabet.indexOf(zin[i]), alphabet.indexOf(woord[i]), mod(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i]), alphabet.length), alphabet[mod(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i]), alphabet.length)]);
       output += alphabet[(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i])) % alphabet.length];
     } else {
       output += zin[i];
