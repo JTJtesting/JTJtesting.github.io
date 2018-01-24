@@ -18,7 +18,7 @@ function updateCaesar(eventje,element){
        // Updated stored value
        element.data('oldVal', element.val());
        element.val(element.data('oldVal').toLowerCase());
-       $("#Caesarouput").html(Caesarcijfer(element.val(),Caesarverschuifing));
+       $("#Caesaroutput").html(Caesarcijfer(element.val(),Caesarverschuifing));
         console.log("het zou moeten werken");
         console.log(Caesarcijfer(element.val(),Caesarverschuifing));
      }
