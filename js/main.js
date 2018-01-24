@@ -21,6 +21,7 @@ function Caesarcijfer(input, verschuif){
 }
 
 $(function(){
+  console.log("bullshit");
   $('#Caesarcijfer').each(function() {
     console.log("bullshit");
    var elem = $(this);
