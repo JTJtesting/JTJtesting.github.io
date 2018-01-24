@@ -30,8 +30,12 @@ function Caesarcijfer(input, verschuif){
   var array = [];
   for(var i=0; i<input.length; i++){
     console.log("alphIndex: ", alphabet.indexOf(input[i]));
-    console.log("alphIndex2: ", (alphabet.indexOf(input[i])+verschuif)%26);
-    Caesaroutput += alphabet[(alphabet.indexOf(input[i])+verschuif)%26];
+    console.log("alphIndex2: ", (alphabet.indexOf(input[i])+verschuif)%alphabet.length);
+    if(alphabet.indexOf(input[i]) != -1){
+    Caesaroutput += alphabet[(alphabet.indexOf(input[i])+verschuif)%alphabet.length];
+    }else{
+      Caesaroutput += input[i];
+    }
   }
   return Caesaroutput;
 }
