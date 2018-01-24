@@ -20,7 +20,7 @@ function Caesarcijfer(input, verschuif){
     Caesaroutput += alphabet[array[j]];
     }
   }
-  
+  return Caesaroutput;
 }
 
 $(function(){
