@@ -20,7 +20,8 @@ function Caesarcijfer(input, verschuif){
   
 }
 
-$('#Caesarcijfer').each(function() {
+$(function(){
+  $('#Caesarcijfer').each(function() {
    var elem = $(this);
 
    // Save current value of element
@@ -37,3 +38,5 @@ $('#Caesarcijfer').each(function() {
      }
    });
  });
+})
+
