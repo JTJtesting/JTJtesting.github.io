@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>Neurale cryptografie</title>
-	
+
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
 
@@ -36,13 +36,30 @@
 				</div>
 				<p>Verschuiving: <span id="ValRange1"></span></p>
 				<span id="Caesaroutput"></span>
-				
+
 			</section>
 			<section>
-				Slide 2
+				Caesarcijfer ontcijferen<br>
+				<input type="text" placeholder="Encoded text" class="Caesarontcijfer">
+				<div class="slidecontainer">
+					<input type="range" min="0" max="25" value="0" class="slider" id="Range2">
+				</div>
+				<p>Verschuiving: <span id="ValRange2"></span></p>
+				<span id="Caesarontoutput"></span>
 			</section>
 
-			<section>Slide 1</section>
+			<section>
+				Vignère
+				<br>
+				<input type="text" placeholder="Vignère" class="Vignère">
+				<br>
+				<input type="text" placeholder="Vignère" class="Vignère">
+				<div class="slidecontainer">
+					<input type="range" min="0" max="25" value="0" class="slider" id="RangeVignère">
+				</div>
+				<p>Verschuiving: <span id="ValRangeVignère"></span></p>
+				<span id="Vignèreoutput"></span>
+			</section>
 			<section>Slide 2</section>
 			<section>Slide 3</section>
 			<section data-markdown>
@@ -93,7 +110,7 @@
 		});
 	</script>
 	<script type="text/javascript" src="js/main.js"></script>
-	
+
 </body>
 
 </html>
