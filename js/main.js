@@ -98,19 +98,13 @@ function updateCaesaront(element) {
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
   $("#Caesarontoutput").html(Caesarontcijfer(element.val(), Caesarontverschuifing));
-  // console.log("het zou moeten werken");
-  // console.log(Caesarcijfer(element.val(), Caesarverschuifing));
 }
 
 function Caesarontcijfer(input, verschuif) {
   verschuif = Number(verschuif);
-  console.log("input: ", input);
-  console.log("verschuif: ", verschuif);
   var Caesaroutput = "";
   var array = [];
   for (var i = 0; i < input.length; i++) {
-    console.log("alphIndex: ", alphabet.indexOf(input[i]));
-    console.log("alphIndex2: ", mod(alphabet.indexOf(input[i]) - verschuif, alphabet.length));
     if (alphabet.indexOf(input[i]) != -1) {
       Caesaroutput += alphabet[mod(alphabet.indexOf(input[i]) - verschuif, alphabet.length)];
     } else {
