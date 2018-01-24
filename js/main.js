@@ -37,7 +37,6 @@ function Caesarcijfer(input, verschuif){
   console.log("input: ",input);
   console.log("verschuif: ",verschuif);
   var Caesaroutput = "";
-  var array = [];
   for(var i=0; i<input.length; i++){
     console.log("alphIndex: ", alphabet.indexOf(input[i]));
     console.log("alphIndex2: ", (alphabet.indexOf(input[i])+verschuif)%alphabet.length);
@@ -107,7 +106,6 @@ function updateCaesaront(element) {
 function Caesarontcijfer(input, verschuif) {
   verschuif = Number(verschuif);
   var Caesaroutput = "";
-  var array = [];
   for (var i = 0; i < input.length; i++) {
     if (alphabet.indexOf(input[i]) != -1) {
       Caesaroutput += alphabet[mod(alphabet.indexOf(input[i]) - verschuif, alphabet.length)];
@@ -138,7 +136,7 @@ function updateVignère() {
       (Vignèrewoord[i % Vignèrewoord.length] !== undefined) ? codewoordlang += Vignèrewoord[i % Vignèrewoord.length] : codewoordlang += "";
     }
     $('#Vignère #Codewoordoutput').html(codewoordlang);
-    $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, Vignèrewoord));
+    $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, codewoordlang));
   // } else {
   //   $('#Vignère #Codezinoutput').html('');
   //   $('#Vignère #Codewoordoutput').html('');
@@ -147,5 +145,16 @@ function updateVignère() {
 }
 
 function Vignèreoutput(zin, woord) {
+  var output = "";
 
+  for (var i = 0; i < zin.length; i++) {
+    if (alphabet.indexOf(zin[i]) != -1 && alphabet.indexOf(woord[i]) != -1) {
+      console.log(alphabet.indexOf(zin[i]), alphabet.indexOf(woord[i]), mod(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i]), alphabet.length), alphabet[mod(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i]), alphabet.length)]);
+      output += alphabet[(alphabet.indexOf(zin[i]) + alphabet.indexOf(woord[i])) % alphabet.length];
+    } else {
+      output += zin[i];
+    }
+  }
+
+  return output;
 }
