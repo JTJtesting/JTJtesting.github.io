@@ -32,8 +32,8 @@ $('#Ceasarcijfer').each(function() {
       if (elem.data('oldVal') != elem.val()) {
        // Updated stored value
        elem.data('oldVal', elem.val());
-       
-       Ceasarcijfer(elem.val(),Ceasarverschuifing);
+       elem.val(elem.data('oldVal').toLowerCase());
+       $("#Ceasarouput").text(Ceasarcijfer(elem.val(),Ceasarverschuifing));
      }
    });
  });
