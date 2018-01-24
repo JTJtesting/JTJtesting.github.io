@@ -12,13 +12,12 @@ slider.oninput = function() {
 }
 
 function Caesarcijfer(input, verschuif){
+  console.log(input);
+  console.log(verschuif);
   var Caesaroutput = "";
   var array = [];
   for(var i=0; i<input.length; i++){
-    array.push((alphabet.indexOf(input[i])+verschuif)%25);
-    for(var j=0; j<array.length; j++){
-    Caesaroutput += alphabet[array[j]];
-    }
+    Caesaroutput += alphabet[(alphabet.indexOf(input[i])+verschuif)%26];
   }
   return Caesaroutput;
 }
