@@ -41,6 +41,10 @@
   border-bottom: white 5px solid;
 }
 
+#Vignèreoutput {
+  line-height: 1.8;
+}
+
 #plus {
   position: absolute;
   margin-left: 10px;
