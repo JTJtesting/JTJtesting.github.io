@@ -42,6 +42,7 @@ $(function(){
        elem.val(elem.data('oldVal').toLowerCase());
        $("#Caesarouput").text(Caesarcijfer(elem.val(),Caesarverschuifing));
         console.log("het zou moeten werken");
+        console.log(Caesarcijfer(elem.val(),Caesarverschuifing));
      }
    });
  });
