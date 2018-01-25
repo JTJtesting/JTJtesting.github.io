@@ -6,6 +6,34 @@ function mod(n, m) {
         return ((n % m) + m) % m;
 }
 
+//
+// Caesar tabel
+//
+
+var tabelslider = document.getElementById("Range3");
+var tabeloutput = document.getElementById("ValRange3");
+tabeloutput.innerHTML = tabelslider.value; // Display the default slider value
+var Caesartabelverschuifing = Number(tabelslider.value);
+// Update the current slider value (each time you drag the slider handle)
+tabelslider.oninput = function() {
+    tabeloutput.innerHTML = this.value;
+    Caesartabelverschuifing = Number(this.value);
+}
+function updateAlphabet() {
+  var alphacount = 0;
+
+  $('#Caesartable #outputrow td').each(function() {
+    $(this).html(alphabet[(alphacount + Caesartabelverschuifing) % alphabet.length]);
+    alphacount += 1;
+   // $(this).css({"width":"40px"});
+  });
+}
+
+$(function(){
+  $("#Range3").on("propertychange change click keyup input paste", function(event) {
+      updateAlphabet(); 
+    });
+});
 
 //
 // Caesar encoden
@@ -27,9 +55,12 @@ function updateCaesar(element) {
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
   $('.Caesarontcijfer').data('oldVal', element.val());
-  $('.Caesarontcijfer').val($('.Caesarontcijfer').data('oldVal').toLowerCase());
-  $("#Caesaroutput").html(Caesarcijfer(element.val(), Caesarverschuifing));
-  $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
+  $('.Caesarontcijfer').val(Caesarcijfer(element.val(), Caesarverschuifing));
+  $("#Caesaroutput").html(Caesarcijfer(element.val().toLowerCase(), Caesarverschuifing));
+  $('.Caesarontcijfer').each(function() {
+    updateCaesaront($(this));
+    });
+  //$("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
 }
 
 function Caesarcijfer(input, verschuif) {
@@ -55,6 +86,7 @@ $(function() {
     // Look for changes in the value
     $("#Range1").on("propertychange change click keyup input paste", function(event) {
       updateCaesar(elem);
+      
     });
     elem.on("propertychange change click keyup input paste", function(event) {
       updateCaesar(elem);
@@ -69,7 +101,7 @@ $(function() {
 
 var slideront = document.getElementById("Range2");
 var outputont = document.getElementById("ValRange2");
-output.innerHTML = slideront.value; // Display the default slider value
+output.innerHTML = "0"; // Display the default slider value
 var Caesarontverschuifing = slideront.value;
 // Update the current slider value (each time you drag the slider handle)
 slideront.oninput = function() {
@@ -96,10 +128,10 @@ $(function() {
 function updateCaesaront(element) {
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
-  $('.Caesarcijfer').data('oldVal', element.val());
-  $('.Caesarcijfer').val($('.Caesarcijfer').data('oldVal').toLowerCase());
+//   $('.Caesarcijfer').data('oldVal', element.val());
+//   $('.Caesarcijfer').val(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
   $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
-  $("#Caesaroutput").html(Caesarcijfer(element.val().toLowerCase(), Caesarverschuifing));
+//   $("#Caesaroutput").html(Caesarcijfer(element.val().toLowerCase(), Caesarverschuifing));
 }
 
 function Caesarontcijfer(input, verschuif) {
