@@ -27,7 +27,10 @@ function updateCaesar(element){
        // Updated stored value
        element.data('oldVal', element.val());
        element.val(element.data('oldVal').toLowerCase());
+  $('.Caesarontcijfer').data('oldVal', element.val());
+  $('.Caesarontcijfer').val($('.Caesarontcijfer').data('oldVal').toLowerCase());
        $("#Caesaroutput").html(Caesarcijfer(element.val(),Caesarverschuifing));
+  $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
         console.log("het zou moeten werken");
         console.log(Caesarcijfer(element.val(),Caesarverschuifing));
    }
@@ -100,7 +103,10 @@ $(function() {
 function updateCaesaront(element) {
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
+  $('.Caesarcijfer').data('oldVal', element.val());
+  $('.Caesarcijfer').val($('.Caesarcijfer').data('oldVal').toLowerCase());
   $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
+  $("#Caesaroutput").html(Caesarcijfer(element.val().toLowerCase(), Caesarverschuifing));
 }
 
 function Caesarontcijfer(input, verschuif) {
