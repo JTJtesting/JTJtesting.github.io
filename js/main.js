@@ -21,30 +21,23 @@ slider.oninput = function() {
     Caesarverschuifing = this.value;
 }
 
-function updateCaesar(element){
-      // If value has changed...
-     console.log("het gaat de goede kant op");
-       // Updated stored value
-       element.data('oldVal', element.val());
-       element.val(element.data('oldVal').toLowerCase());
+function updateCaesar(element) {
+  // If value has changed...
+  // Updated stored value
+  element.data('oldVal', element.val());
+  element.val(element.data('oldVal').toLowerCase());
   $('.Caesarontcijfer').data('oldVal', element.val());
   $('.Caesarontcijfer').val($('.Caesarontcijfer').data('oldVal').toLowerCase());
-       $("#Caesaroutput").html(Caesarcijfer(element.val(),Caesarverschuifing));
+  $("#Caesaroutput").html(Caesarcijfer(element.val(), Caesarverschuifing));
   $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
-        console.log("het zou moeten werken");
-        console.log(Caesarcijfer(element.val(),Caesarverschuifing));
-   }
+}
 
-function Caesarcijfer(input, verschuif){
+function Caesarcijfer(input, verschuif) {
   verschuif = Number(verschuif);
-  console.log("input: ",input);
-  console.log("verschuif: ",verschuif);
   var Caesaroutput = "";
-  for(var i=0; i<input.length; i++){
-    console.log("alphIndex: ", alphabet.indexOf(input[i]));
-    console.log("alphIndex2: ", (alphabet.indexOf(input[i])+verschuif)%alphabet.length);
-    if(alphabet.indexOf(input[i]) != -1){
-      Caesaroutput += alphabet[(alphabet.indexOf(input[i])+verschuif)%alphabet.length];
+  for (var i = 0; i < input.length; i++) {
+    if (alphabet.indexOf(input[i]) != -1) {
+      Caesaroutput += alphabet[(alphabet.indexOf(input[i]) + verschuif) % alphabet.length];
     } else {
       Caesaroutput += input[i];
     }
@@ -52,21 +45,21 @@ function Caesarcijfer(input, verschuif){
   return Caesaroutput;
 }
 
-$(function(){
-  console.log("bullshit");
-  $('.Caesarcijfer').each(function(){
-    console.log("bullshit");
-   var elem = $(this);
+$(function() {
+  $('.Caesarcijfer').each(function() {
+    var elem = $(this);
 
-   // Save current value of element
-   elem.data('oldVal', elem.val());
+    // Save current value of element
+    elem.data('oldVal', elem.val());
 
-   // Look for changes in the value
-   $("#Range1").on("propertychange change click keyup input paste", function(event) {
-     updateCaesar(elem);
-   });
-   elem.on("propertychange change click keyup input paste",function(event){updateCaesar(elem);});
- });
+    // Look for changes in the value
+    $("#Range1").on("propertychange change click keyup input paste", function(event) {
+      updateCaesar(elem);
+    });
+    elem.on("propertychange change click keyup input paste", function(event) {
+      updateCaesar(elem);
+    });
+  });
 });
 
 
