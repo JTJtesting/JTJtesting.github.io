@@ -158,22 +158,42 @@ $(function() {
 })
 
 $(".Vignère").on("propertychange change click keyup input paste", updateVignère);
+$("#Vignère .fragment").on("propertychange change", function (ev) {
+  console.log(ev);
+//   $(".Vignère").on("propertychange change click keyup input paste", updateVignère);
+});
 
 function updateVignère() {
   Vignèrezin = $('#Vignère #Codezin').val().toLowerCase();
   Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase();
 
-  (Vignèrewoord.length === 0) ? $('#plus').css('display', 'none') : $('#plus').css('display', 'inline-block');
+  (Vignèrewoord.length === 0) ? $('.plus').css('display', 'none') : $('.plus').css('display', 'inline-block');
 
   var codewoordlang = "";
-
-  $('#Vignère #Codezinoutput').html(Vignèrezin);
 
   for (var i = 0; i < Vignèrezin.length; i++) {
     (Vignèrewoord[i % Vignèrewoord.length] !== undefined) ? codewoordlang += Vignèrewoord[i % Vignèrewoord.length]: codewoordlang += "";
   }
+  
+  $('#Vignère #Codezinoutput').html(Vignèrezin);
   $('#Vignère #Codewoordoutput').html(codewoordlang);
   $('#Vignère #Vignèreoutput').html(Vignèreoutput(Vignèrezin, codewoordlang));
+  
+  $('#Vignère #Codezinoutputcijfers').html("");
+  $('#Vignère #Codewoordoutputcijfers').html("");
+  $('#Vignère #Vignèreoutputcijfers').html("");
+  
+  for (i = 0; i < Vignèrezin.length; i++) {
+    $('#Vignère #Codezinoutputcijfers').append("<td>" + Vignèrezin.toAlphabetIndex()[i] + "</td>");
+    if (codewoordlang.toAlphabetIndex()[i] !== undefined){
+      $('#Vignère #Codewoordoutputcijfers').append("<td>" + codewoordlang.toAlphabetIndex()[i] + "</td>");    
+    } else {
+      $('#Vignère #Codewoordoutputcijfers').append("<td></td>");   
+    }
+    console.log(codewoordlang.toAlphabetIndex());
+    $('#Vignère #Vignèreoutputcijfers').append("<td>" + Vignèreoutput(Vignèrezin, codewoordlang).toAlphabetIndex()[i] + "</td>");
+  }
+  
 }
 
 function Vignèreoutput(zin, woord) {
@@ -188,4 +208,16 @@ function Vignèreoutput(zin, woord) {
   }
 
   return output;
+}
+
+//
+// Maakt er cijfers van op basis van arrayplek.
+//
+String.prototype.toAlphabetIndex = function () {
+  var a = [];
+  for (var i = 0; i < this.length; i++) {
+//     console.log(this, this[i], alphabet.indexOf(this[i]));
+    (alphabet.indexOf(this[i]) > -1) ? a.push(alphabet.indexOf(this[i])) : a.push("");
+  }
+  return a;
 }

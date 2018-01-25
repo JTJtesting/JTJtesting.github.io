@@ -24,7 +24,7 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
+    width: 50px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
@@ -45,15 +45,17 @@ input[type="text"] {
    font-size: 24px;
  }
 
-#Vignère #Codewoordoutput {
-  border-bottom: white 5px solid;
-}
+#Vignère #Codewoordoutput, 
+#Vignère #Codewoordoutputcijfers {
+   border-bottom: white 5px solid;
+ }
 
-#Vignèreoutput {
-  line-height: 1.8;
-}
+ #Vignèreoutput,
+ #Vignèreoutputcijfers {
+   line-height: 1.8;
+ }
 
-#plus {
+.plus {
   position: absolute;
   margin-left: 10px;
 }
