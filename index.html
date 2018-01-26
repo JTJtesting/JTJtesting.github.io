@@ -9,7 +9,8 @@
 	<title>Neurale cryptografie</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+<!-- 	<link rel="stylesheet" href="css/theme/black.css"> -->
+	<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -93,7 +94,6 @@
 				<p>Verschuiving: <span id="ValRange3"></span></p>
 			</section>
 			
-			
 			<section>
 				Caesarcijfer<br>
 				
@@ -114,25 +114,32 @@
 				<p>Verschuiving terug: <span id="ValRange2"></span></p>
 				<span id="Caesarontoutput"></span>
 			</section>
-
+			<section >
+				<table id="alphabettable">
+					
+				</table>
+			</section>
 			<section id="Vignère">
 				Vignère
 				<br>
-				<input type="text" placeholder="Klare tekst" id="Codezin" class="Vignère">
+				<input type="text" value="Codezin" id="Codezin" class="Vignère">
 				<br>
-				<input type="text" placeholder="Steutelwoord" id="Codewoord" class="Vignère">
+				<input type="text" value="Codewoord" id="Codewoord" class="Vignère">
 				<br>
-				<div class="fragment">
-					<span id="Codezinoutput"></span><br>
-					<span id="Codewoordoutput"></span><span class="plus"> +</span><br>
-					<span id="Vignèreoutput"></span>
-				</div>
-				<div class="fragment fade-up">
+				<div id="Vignèresom">
+					<div class="fragment fade-up">
+						<span id="Codezinoutput"> </span><br>
+						<span id="Codewoordoutput"> </span><span class="plus"> +</span><br>
+						
+						<span id="Vignèreoutput"> </span>
+					</div>
+					<div class="fragment fade-up">
 					<table>
-						<tr id="Codezinoutputcijfers"></tr>
-						<tr id="Codewoordoutputcijfers"></tr>
-						<tr id="Vignèreoutputcijfers"></tr>
+						<tr id="Codezinoutputcijfers"><td> </td></tr>
+						<tr id="Codewoordoutputcijfers"><td> </td></tr>
+						<tr id="Vignèreoutputcijfers"><td> </td></tr>
 					</table>
+					</div>
 				</div>
 			</section>
 			<section>Slide 2</section>
@@ -147,10 +154,9 @@
 			<section data-markdown>
 				<script type="text/template">
 					- Item 1
-					<!-- .element: class="fragment" data-fragment-index="1" -->
-					
-					- Item 2
 					<!-- .element: class="fragment" data-fragment-index="2" -->
+					- Item 2
+					<!-- .element: class="fragment" data-fragment-index="1" -->
 				</script>
 			</section>
 

@@ -7,6 +7,22 @@ function mod(n, m) {
 }
 
 //
+// Alphabet
+//
+var alphaappend ="<tr>";
+for (var i = 0; i < alphabet.length; i++) {
+  alphaappend += "<td>"+alphabet[i]+"</td>";
+  
+}
+alphaappend += "</tr><tr>";
+for (var i = 0; i < alphabet.length; i++) {
+  alphaappend += "<td>"+i+"</td>";
+  
+}
+$("#alphabettable").append(alphaappend);
+
+
+//
 // Caesar tabel
 //
 
@@ -128,10 +144,7 @@ $(function() {
 function updateCaesaront(element) {
   element.data('oldVal', element.val());
   element.val(element.data('oldVal').toLowerCase());
-//   $('.Caesarcijfer').data('oldVal', element.val());
-//   $('.Caesarcijfer').val(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
   $("#Caesarontoutput").html(Caesarontcijfer(element.val().toLowerCase(), Caesarontverschuifing));
-//   $("#Caesaroutput").html(Caesarcijfer(element.val().toLowerCase(), Caesarverschuifing));
 }
 
 function Caesarontcijfer(input, verschuif) {
@@ -158,14 +171,10 @@ $(function() {
 })
 
 $(".Vignère").on("propertychange change click keyup input paste", updateVignère);
-$("#Vignère .fragment").on("propertychange change", function (ev) {
-  console.log(ev);
-//   $(".Vignère").on("propertychange change click keyup input paste", updateVignère);
-});
 
 function updateVignère() {
-  Vignèrezin = $('#Vignère #Codezin').val().toLowerCase();
-  Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase();
+  Vignèrezin = $('#Vignère #Codezin').val().toLowerCase().replace(/\s/g,'');
+  Vignèrewoord = $('#Vignère #Codewoord').val().toLowerCase().replace(/\s/g,'');
 
   (Vignèrewoord.length === 0) ? $('.plus').css('display', 'none') : $('.plus').css('display', 'inline-block');
 
@@ -183,6 +192,8 @@ function updateVignère() {
   $('#Vignère #Codewoordoutputcijfers').html("");
   $('#Vignère #Vignèreoutputcijfers').html("");
   
+  
+  // Voegt elke cijfer toe aan de tabel die de som vormt.
   for (i = 0; i < Vignèrezin.length; i++) {
     $('#Vignère #Codezinoutputcijfers').append("<td>" + Vignèrezin.toAlphabetIndex()[i] + "</td>");
     if (codewoordlang.toAlphabetIndex()[i] !== undefined){
@@ -190,8 +201,13 @@ function updateVignère() {
     } else {
       $('#Vignère #Codewoordoutputcijfers').append("<td></td>");   
     }
-    console.log(codewoordlang.toAlphabetIndex());
     $('#Vignère #Vignèreoutputcijfers').append("<td>" + Vignèreoutput(Vignèrezin, codewoordlang).toAlphabetIndex()[i] + "</td>");
+  }
+  
+  if ($('#Vignère #Codezinoutput').html() === "" || $('#Vignère #Codewoordoutput').html() === "") {
+    $('#Vignèresom').css('opacity', '0');
+  } else {
+    $('#Vignèresom').css('opacity', '1');
   }
   
 }

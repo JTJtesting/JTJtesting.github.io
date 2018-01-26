@@ -45,10 +45,22 @@ input[type="text"] {
    font-size: 24px;
  }
 
+#Vignèresom {
+  transform: 0.7s all;
+}
+
 #Vignère #Codewoordoutput, 
 #Vignère #Codewoordoutputcijfers {
    border-bottom: white 5px solid;
  }
+
+#Codezinoutputcijfers td{
+  border-bottom: none;
+}
+
+#Codezinoutputcijfers td, #Codewoordoutputcijfers td, #Vignèreoutputcijfers td{
+  text-align: center;
+}
 
  #Vignèreoutput,
  #Vignèreoutputcijfers {
@@ -67,4 +79,10 @@ input[type="text"] {
  text-align: center;
 }
 
+#alphabettable td{
+ font-size: 40px;
+ padding: 0px 5px; 
+ min-width: 35px;
+ text-align: center;
+}
 
