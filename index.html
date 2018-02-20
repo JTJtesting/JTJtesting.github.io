@@ -161,8 +161,8 @@
 			<section>
 				<section >
 					<h2> AI </h2>
-						<img data-autoslide="500" class="" style="width: 48%;" src="https://kimschmidtsbrain.files.wordpress.com/2015/10/googlesemanticsearchdeeplearning-300x278.jpg" ></img>
-						<img class="" src="img/AI_network.png" style="width: 48%;background: white;"></img>
+						<img data-autoslide="500" class="fragment fade-up" style="width: 48%;" src="https://kimschmidtsbrain.files.wordpress.com/2015/10/googlesemanticsearchdeeplearning-300x278.jpg" ></img>
+						<img class="fragment fade-up" src="img/AI_network.png" style="width: 48%;background: white;"></img>
 				</section>
 				<section>
 					<h2>
@@ -235,6 +235,9 @@
 		// - https://github.com/hakimel/reveal.js#configuration
 		// - https://github.com/hakimel/reveal.js#dependencies
 		Reveal.initialize({
+			controls: false,
+			progress: true,
+			history: true,
 			dependencies: [{
 					src: 'plugin/markdown/marked.js'
 				},
