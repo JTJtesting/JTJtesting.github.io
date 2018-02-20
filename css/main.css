@@ -1,6 +1,7 @@
-.subtitle {
-  font-weight: 300;
+h2 {
+  font-weight: 500;
 }
+
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
