@@ -1,3 +1,18 @@
+h1 {
+  font-weight: 500;
+}
+.title {
+  font-size: 3em;
+}
+h4 {
+  font-weight: 300;
+}
+h5 {
+  font-weight: 200;
+}
+table{
+  color:white;
+}
 .slidecontainer {
     width: 100%; /* Width of the outside container */
 }
@@ -49,7 +64,7 @@ input[type="text"] {
   transform: 0.7s all;
 }
 
-#Vignère #Codewoordoutput, 
+#Vignère #Codewoordoutput,
 #Vignère #Codewoordoutputcijfers {
    border-bottom: white 5px solid;
  }
@@ -74,15 +89,14 @@ input[type="text"] {
 
 #Caesartable td{
  font-size: 40px;
- padding: 0px 5px; 
+ padding: 0px 5px;
  min-width: 35px;
  text-align: center;
 }
 
 #alphabettable td{
  font-size: 40px;
- padding: 0px 5px; 
+ padding: 0px 5px;
  min-width: 35px;
  text-align: center;
 }
-
